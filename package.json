@@ -1,0 +1,19 @@
+{
+  "name": "teacher-activity-reports",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "better-sqlite3": "^7.1.4"
+  }
+}
