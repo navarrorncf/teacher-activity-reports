@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "create-database": "node db/createDatabase",
+    "reset-database": "rm db/cem02braz.db && sleep 1 && npm run create-database",
+    "clear-output-dir": "rm -r output/*"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +17,7 @@
     "jest": "^26.6.3"
   },
   "dependencies": {
-    "better-sqlite3": "^7.1.4"
+    "better-sqlite3": "^7.1.4",
+    "puppeteer": "^9.0.0"
   }
 }
