@@ -1,2 +1,5 @@
 node_modules
 coverage
+input/**/*.csv
+input/**/*.ods
+cem02braz.db
