@@ -78,6 +78,11 @@ const monthlyActivityReportSeeders = {
     "ActivityReport",
     getReportsByMonth(availableMonths.maio)
   ),
+  junho: new ActivityReportSeeder(
+    databaseConnection,
+    "ActivityReport",
+    getReportsByMonth(availableMonths.junho)
+  ),
 };
 
 module.exports = monthlyActivityReportSeeders;

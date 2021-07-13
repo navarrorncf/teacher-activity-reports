@@ -4,3 +4,4 @@ require("./RoleSeeder").seedDatabase();
 require("./RoleSupervisorSeeder").seedDatabase();
 require("./ActivityReportSeeder").abril.seedDatabase();
 require("./ActivityReportSeeder").maio.seedDatabase();
+require("./ActivityReportSeeder").junho.seedDatabase();
