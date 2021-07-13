@@ -1,1 +1,1 @@
-module.exports.mergeArrays = (acc, cur) => [...cur, ...acc];
+module.exports.mergeArrays = (acc, cur) => [...acc, ...cur];
