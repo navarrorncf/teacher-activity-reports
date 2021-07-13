@@ -1,21 +1,5 @@
 const { readdirSync } = require("fs");
 
-//===============//
-//               //
-//   CONSTANTS   //
-//               //
-//===============//
-
-// const { FIELD_NAMES, REGEX_MATCHERS } = require("./constants");
-
-//=======================//
-//                       //
-//   UTILITY FUNCTIONS   //
-//                       //
-//=======================//
-
-// const { pluckField, reformatDate, reformatTimestamp } = require("./utils");
-
 //===============================//
 //                               //
 //   REDUCE CALLBACK FUNCTIONS   //
@@ -30,12 +14,15 @@ const { mergeArrays } = require("./reduceCallbacks");
 //                            //
 //============================//
 
-// const {
-//   getFileContents,
-//   getFilePath,
-//   getRows,
-//   removeEmptyRows,
-// } = require("./mapCallbacks");
+const {
+  getFileContents,
+  getFilePath,
+  getRows,
+  removeEmptyRows,
+  getRowsWithHeaders,
+  buildEntries,
+  buildDateStrings,
+} = require("./mapCallbacks");
 
 //===============================//
 //                               //
@@ -43,30 +30,25 @@ const { mergeArrays } = require("./reduceCallbacks");
 //                               //
 //===============================//
 
-// const { isCsvFile } = require("./filterCallbacks");
+const { isCsvFile } = require("./filterCallbacks");
 
-//============================//
-//                            //
-//   ENTRY PARSER FUNCTIONS   //
-//                            //
-//============================//
+//==================//
+//                  //
+//   ENTRY PARSER   //
+//                  //
+//==================//
 
-// const parseEntry = (entryString) => {
-//
-//   TODO!!
-//
-// };
+const getAllReports = (currentDirectory, year, month) =>
+  readdirSync(currentDirectory)
+    .filter(isCsvFile)
+    .map((fileName) => getFilePath(currentDirectory, fileName))
+    .map(getFileContents)
+    .map(getRows)
+    .map(removeEmptyRows)
+    .map(getRowsWithHeaders)
+    .reduce(mergeArrays)
+    .map(buildEntries)
+    .reduce(mergeArrays)
+    .map((entry) => buildDateStrings(entry, year, month));
 
-// const parseRows = (rowsArray) => rowsArray.map(parseEntry);
-
-// const getAllReports = (currentDirectory) =>
-//   readdirSync(currentDirectory)
-//     .filter(isCsvFile)
-//     .map((fileName) => getFilePath(currentDirectory, fileName))
-//     .map(getFileContents)
-//     .map(getRows)
-//     .map(removeEmptyRows)
-//     .map(parseRows)
-//     .reduce(mergeArrays, []);
-
-module.exports = null;
+module.exports = getAllReports;

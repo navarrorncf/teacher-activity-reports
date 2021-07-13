@@ -15,3 +15,9 @@ module.exports.FIELD_NAMES = [
   "AfternoonShift",
   "NightShift",
 ];
+
+module.exports.SHIFTS = {
+  MATUTINO: "MorningShift",
+  VESPERTINO: "AfternoonShift",
+  NOTURNO: "NightShift",
+};

@@ -34,3 +34,11 @@ module.exports.reformatDate = (date) => {
   const [day, month, year] = date.split("/");
   return `${padYear(year)}/${pad(2)(month)}/${pad(2)(day)}`;
 };
+
+module.exports.removeTabsAndLineBreaks = (string) =>
+  string.replace(/\t/g, " ").replace(/\n/g, "<br>").trim();
+
+module.exports.buildDateString = (dayString, year, month) => {
+  const day = dayString.match(/[0-9]+/)[0];
+  return `${year}/${month}/${day}`;
+};
