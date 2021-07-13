@@ -74,10 +74,9 @@ db.exec(
     MorningShift TEXT,
     AfternoonShift TEXT,
     NightShift TEXT,
-    CONSTRAINT unique_employee_timestamp UNIQUE (RoleID, Date, Timestamp),
     FOREIGN KEY (RoleID) REFERENCES Role (ID)
-      ON DELETE CASCADE
-      ON UPDATE CASCADE
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
     )`
 );
 
