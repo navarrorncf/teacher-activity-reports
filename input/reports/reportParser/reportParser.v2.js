@@ -46,9 +46,9 @@ const getAllReports = (currentDirectory, year, month) =>
     .map(getRows)
     .map(removeEmptyRows)
     .map(getRowsWithHeaders)
-    .reduce(mergeArrays)
+    .reduce(mergeArrays, [])
     .map(buildEntries)
-    .reduce(mergeArrays)
+    .reduce(mergeArrays, [])
     .map((entry) => buildDateStrings(entry, year, month));
 
 module.exports = getAllReports;
