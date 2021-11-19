@@ -1,10 +1,13 @@
 const ForeignKeySeeder = require("./ForeignKeySeeder");
 const { databaseConnection } = require("../controller");
 
-const employees = require("../../input/employees").map(({ Name, Email }) => ({
-  Name,
-  Email,
-}));
+const employees = require("../../input/employees").map(({ Name, Email }) => {
+  if (!Email) console.log(Name);
+  return {
+    Name,
+    Email,
+  };
+});
 
 employees.push({
   Name: "LARYSSA LOPES DOS ANJOS",
@@ -29,6 +32,11 @@ employees.push({
 employees.push({
   Name: "LUCAS LIMA PINTO",
   Email: "lucas.pinto85@edu.se.df.gov.br",
+});
+
+employees.push({
+  Name: "KATIANA JACOB DE ASSUNCAO",
+  Email: "katiana.assuncao@edu.se.df.gov.br",
 });
 
 class EmailSeeder extends ForeignKeySeeder {
