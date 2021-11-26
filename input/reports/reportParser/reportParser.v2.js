@@ -22,7 +22,7 @@ const {
   getRowsWithHeaders,
   buildEntries,
   buildDateStrings,
-} = require("./mapCallbacks");
+} = require("./mapCallbacks.v2");
 
 //===============================//
 //                               //
